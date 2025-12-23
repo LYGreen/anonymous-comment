@@ -49,7 +49,7 @@ const getCommentName = (isAuthor: boolean) => {
 
 /* Javascript variables */
 const commentsUrl = 'https://anonymous-comment.lygreen7412.workers.dev/comments';
-const BaseUrl = (import.meta as any).env.VITE_BASE_URL || '';
+const BaseUrl = (import.meta as any).env.BASE_URL || '';
 
 /* Vue variables */
 const { authorKey } = storeToRefs(useAuthorKeyStore());

@@ -23,12 +23,12 @@ interface UserProfile {
 const ProfileApiUrl = 'https://api.github.com/users/LYGreen';
 const KeyValidationUrl = 'https://anonymous-comment.lygreen7412.workers.dev/key';
 const RepositoryUrl = 'https://github.com/LYGreen/anonymous-comment';
-const BaseUrl = (import.meta as any).env.VITE_BASE_URL || '';
+const BaseUrl = (import.meta as any).env.BASE_URL || '';
 const statusIcons = {
-    empty: '/help-circle.svg',
-    valid: '/check.svg',
-    invalid: '/x.svg',
-    waiting: '/refresh-cw.svg',
+    empty: `${BaseUrl}/help-circle.svg`,
+    valid: `${BaseUrl}/check.svg`,
+    invalid: `${BaseUrl}/x.svg`,
+    waiting: `${BaseUrl}/refresh-cw.svg`,
 };
 let controller: AbortController | null = null;
 
@@ -41,7 +41,7 @@ const statusSrc = ref<string>(statusIcons.empty);
 function preload() {
     Object.entries(statusIcons).forEach(([key, src]) => {
         const img = new Image();
-        img.src = BaseUrl + src;
+        img.src = src;
     });
 }
 
