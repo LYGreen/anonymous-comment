@@ -15,3 +15,9 @@ html, body {
   display: flex;
   flex-direction: row;
 }
+
+@media (max-width: 768px) {
+  #app {
+    flex-direction: column;
+  }
+}

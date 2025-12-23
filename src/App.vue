@@ -7,12 +7,25 @@ import Sidebar from './components/Sidebar.vue';
 </script>
 
 <template>
-  <Profile />
-  <CommentLayout />
-  <Sidebar />
+  <Profile class="profile" />
+  <CommentLayout class="comment-layout" />
+  <Sidebar class="sidebar" />
 </template>
 
 <style scoped>
 
+@media (max-width: 768px) {
+  .profile {
+    order: 1;
+  }
+
+  .comment-layout {
+    order: 3;
+  }
+
+  .sidebar {
+    order: 2;
+  }
+}
 
 </style>

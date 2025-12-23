@@ -125,5 +125,5 @@ function onSend(comment: Comment) {
     text-align: center;
     margin-top: 16px;
 }
-    
+
 </style>

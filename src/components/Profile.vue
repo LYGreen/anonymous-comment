@@ -208,4 +208,14 @@ p {
     }
 }
 
+@media (max-width: 768px) {
+    #profile {
+        position: inherit;
+    }
+
+    .feedback {
+        margin-top: 12px;
+    }
+}
+
 </style>
