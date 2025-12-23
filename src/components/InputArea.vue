@@ -61,7 +61,7 @@ function onButtonClick() {
         timeout: 30 * 1000,
     }).then((response) => {
         if (response.data.success) {
-            const inserted = response.data.results[0];
+            const inserted: DBCommentData = response.data.results[0];
             emit('send', {
                 main: {
                     id: inserted.id,

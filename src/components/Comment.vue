@@ -47,6 +47,10 @@ const getCommentName = (isAuthor: boolean) => {
     return isAuthor ? profile.name : 'Anonymous';
 };
 
+const dateStringToLocaleTimeString = (dateString: string) => {
+    return new Date(dateString.replace(' ', 'T') + 'Z').toLocaleString();
+};
+
 /* Javascript variables */
 const commentsUrl = 'https://anonymous-comment.lygreen7412.workers.dev/comments';
 const BaseUrl = (import.meta as any).env.BASE_URL || '';
@@ -71,7 +75,7 @@ function onButtonClick() {
         timeout: 30 * 1000,
     }).then((response) => {
         if (response.data.success) {
-            const inserted = response.data.results[0];
+            const inserted: DBCommentData = response.data.results[0];
             props.comment.children.push({
                 id: inserted.id,
                 parentId: inserted.parent_id,
@@ -98,7 +102,7 @@ function onButtonClick() {
             <div class="info">
                 <div class="meta">
                     <h3>{{ getCommentName(comment.main.isAuthor) }}&nbsp;-&nbsp;</h3>
-                    <span>{{ comment.main.createdAt }}</span>
+                    <span>{{ dateStringToLocaleTimeString(comment.main.createdAt) }}</span>
                     
                 </div>
                 <p class="content">{{ comment.main.content }}</p>
@@ -109,7 +113,7 @@ function onButtonClick() {
             <div class="info">
                 <div class="meta">
                     <h3>{{ getCommentName(child.isAuthor) }}&nbsp;-&nbsp;</h3>
-                    <span>{{ child.createdAt }}</span>
+                    <span>{{ dateStringToLocaleTimeString(child.createdAt) }}</span>
                 </div>
                 <p class="content">{{ child.content }}</p>
             </div>
