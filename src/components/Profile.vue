@@ -167,6 +167,7 @@ p {
     font-size: 12px;
     color: #555;
     text-decoration: underline;
+    align-self: flex-start;
 }
 
 .author-key-area {
